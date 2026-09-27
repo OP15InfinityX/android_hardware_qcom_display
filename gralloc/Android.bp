@@ -248,6 +248,9 @@ qtimapperext_cc_defaults {
 //mapper5
 cc_library_shared {
     name: "mapper.qti",
+    // Use the matching stock mapper and mapper.qti.xml from the vendor tree.
+    // The unused source must not also install its VINTF fragment at that path.
+    enabled: false,
     defaults: [
         "qtidisplay_common_defaults",
         "mapperext_defaults",
@@ -290,6 +293,8 @@ cc_library_shared {
 // Allocator
 cc_binary {
     name: "vendor.qti.hardware.display.allocator-service",
+    // Stock allocator, init RC and VINTF fragment are supplied by the vendor tree.
+    enabled: false,
     defaults: ["qtidisplay_alloc_defaults"],
     sanitize: {
         integer_overflow: true,

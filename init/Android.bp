@@ -1,5 +1,7 @@
 prebuilt_etc {
     name: "init.qti.display_boot.rc",
+    // The matching OxygenOS RC is copied by sm8850-common-vendor.mk.
+    enabled: false,
     src: "init.qti.display_boot.rc",
     sub_dir: "init",
     vendor: true,
@@ -7,6 +9,8 @@ prebuilt_etc {
 
 sh_binary {
     name: "init.qti.display_boot.sh",
+    // The OxygenOS init.qti.display_boot module installs this same filename.
+    enabled: false,
     src: "init.qti.display_boot.sh",
     vendor: true,
 }

@@ -77,6 +77,9 @@ cc_defaults {
 
 cc_binary {
     name: "vendor.qti.hardware.display.composer-service",
+    // Use the matching OxygenOS 16.0.8 composer prebuilt. Its vendor composer3
+    // AIDL V1 dependency must not be combined with the unused source's V4.
+    enabled: false,
     defaults: [
         "qtidisplay_defaults",
         "composer-service_defaults",
@@ -110,6 +113,8 @@ cc_binary {
 
 prebuilt_etc {
     name: "vendor.qti.hardware.display.composer-service.rc",
+    // Use the OxygenOS RC shipped alongside the selected stock composer.
+    enabled: false,
     src: "vendor.qti.hardware.display.composer-service.rc",
     filename_from_src: true,
     sub_dir: "init",
@@ -118,6 +123,8 @@ prebuilt_etc {
 
 prebuilt_etc_xml {
     name: "vendor.qti.hardware.display.composer-service.xml",
+    // The stock composer-service3_v4.xml module owns this installed filename.
+    enabled: false,
     src: select(soong_config_variable("qtidisplay", "composer_version"), {
         "v3_4": "vendor.qti.hardware.display.composer-service3_v4.xml",
         "v3_3": "vendor.qti.hardware.display.composer-service3_v3.xml",
@@ -269,4 +276,3 @@ qticomposer3_cc_defaults {
         },
     },
 }
-
