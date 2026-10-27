@@ -38,8 +38,6 @@ cc_library_shared {
 
 cc_binary {
     name: "vendor.qti.hardware.display.demura-service",
-    // Stock demura, init RC and VINTF fragment are supplied by the vendor tree.
-    enabled: false,
     defaults: ["qtidisplay_defaults"],
     sanitize: {
         integer_overflow: true,
